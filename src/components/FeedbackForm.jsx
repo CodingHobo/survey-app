@@ -26,7 +26,7 @@ function FeedbackForm() {
       setBtnDisabled(true)
       setMessage(null)
 
-    } else if (value.trim().length < 10) { 
+    } else if (value.trim().length < 10) {
       setMessage('Text must be at least 10 characters')
       setBtnDisabled(true)
     } else {
@@ -56,7 +56,7 @@ function FeedbackForm() {
     <Card>
       <form onSubmit={handleSubmit}>
         <h2>How would you rate this simple survey app?</h2>
-        <RatingSelect select={(rating) => setRating(rating)} />
+        <RatingSelect select={setRating} selected={rating} />
         <div className='input-group'>
           <input
             onChange={handleTextChange}

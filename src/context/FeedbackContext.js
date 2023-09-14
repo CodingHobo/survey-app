@@ -7,17 +7,19 @@ export const FeedbackProvider = ({ children }) => {
   const [ feedback, setFeedback ] = useState([
     {
       id: 1,
-      text: 'This item is feedback item 1',
+      text: `There is no backend in Version 1.0.0,
+        so your reviews will disappear with page reload. This is
+        for demo purposes only, as of now.`,
       rating: 10
     },
     {
       id: 2,
-      text: 'This item is feedback item 2',
+      text: 'Future versions will allow for data storage, among other features.',
       rating: 7
     },
     {
       id: 3,
-      text: 'This item is feedback item 3',
+      text: 'Come back for updates! And thanks for visiting :)',
       rating: 9
     },
   ])
