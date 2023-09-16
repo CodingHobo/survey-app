@@ -27,14 +27,6 @@ function App() {
                   <FeedbackForm />
                   <FeedbackStats />
                   <FeedbackList />
-                  <Card className="reverse">
-                    <p>There is no backend in Version 1.0.0,
-                      so your reviews will disappear with page reload.
-                      This is for demo purposes only, as of now.</p>
-                    <p>Future versions will allow for data storage,
-                      among other features.</p>
-                    <p>Come back for updates! And thanks for visiting :)</p>
-                  </Card>
                 </>
               }
             ></Route>

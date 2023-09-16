@@ -1,4 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
+import { doc, collection, getDocs, addDoc, deleteDoc, updateDoc } from "firebase/firestore";
+import { db } from '../utils/firebaseConfig.js'
 
 const FeedbackContext = createContext();
 
@@ -21,57 +23,63 @@ export const FeedbackProvider = ({ children }) => {
 
   // Fetch feedback
   const fetchFeedback = async () => {
-    const response = await fetch('feedback?_sort=id&_order=desc');
-    const data = await response.json()
+    setIsLoading(true);
+    try {
+        const feedbackCollection = collection(db, 'feedback');
+        const snapshot = await getDocs(feedbackCollection);
 
-    setFeedback(data)
-    setIsLoading(false)
+        const data = snapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }));
+
+        setFeedback(data);
+    } catch (error) {
+        console.error("Error fetching feedback: ", error);
+    }
+    setIsLoading(false);
   }
+
 
   // Add feedback item
   const addFeedback = async (newFeedback) => {
-    const response = await fetch('feedback', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newFeedback)
-    });
-
-    const data = await response.json()
-
-    setFeedback([data, ...feedback])
-  }
-
-  // Delete feedback
-  const deleteFeedback = async (id) => {
-    if (window.confirm('Are you sure you want to delete?')) {
-      await fetch(`/feedback/${id}`, { method: 'DELETE' })
-
-      setFeedback(feedback.filter((item) => item.id !== id))
+    try {
+      const docRef = await addDoc(collection(db, "feedback"), newFeedback);
+      // Add the newly created feedback item to the state.
+      setFeedback([{ id: docRef.id, ...newFeedback }, ...feedback]);
+    } catch (e) {
+      console.error("Error adding document: ", e);
     }
   }
 
+
+  // Delete feedback
+  const deleteFeedback = async (id) => {
+      if (window.confirm('Are you sure you want to delete?')) {
+          try {
+              await deleteDoc(doc(db, "feedback", id));
+              setFeedback(feedback.filter((item) => item.id !== id));
+          } catch (e) {
+              console.error("Error deleting document: ", e);
+          }
+      }
+  }
+
+
   // Update feedback item
   const updateFeedback = async (id, updatedItem) => {
-    const response = await fetch(`feedback/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(updatedItem)
-    })
-
-    const data = await response.json()
-
-    setFeedback(
-      feedback.map((item) =>
-      (item.id === id
-      ? { ...item, ...data }
-      : item))
-    )
-    setFeedbackEdit(defaultEditState)
-    fetchFeedback()
+    try {
+        const feedbackRef = doc(db, "feedback", id);
+        await updateDoc(feedbackRef, updatedItem);
+        setFeedback(
+            feedback.map((item) =>
+                item.id === id ? { ...item, ...updatedItem } : item
+            )
+        );
+        setFeedbackEdit(defaultEditState);
+    } catch (e) {
+        console.error("Error updating document: ", e);
+    }
   }
 
   // Set feedback item to be updated
