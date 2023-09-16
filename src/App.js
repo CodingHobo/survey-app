@@ -6,6 +6,7 @@ import FeedbackForm from './components/FeedbackForm';
 import AboutIconLink from './components/AboutIconLink';
 import AboutPage from './pages/AboutPage';
 import { FeedbackProvider } from './context/FeedbackContext';
+import Card from './components/shared/Card';
 
 import { Link } from 'react-router-dom';
 
@@ -26,6 +27,10 @@ function App() {
                   <FeedbackForm />
                   <FeedbackStats />
                   <FeedbackList />
+                  <Card className="reverse">
+                    <p>Thanks for checking out my demo!</p>
+                    <p>Feel free to leave a review :)</p>
+                  </Card>
                 </>
               }
             ></Route>

@@ -8,15 +8,14 @@ function AboutPage() {
       <div className='about'>
         <h1>About this Demo</h1>
         <p>This is a React app to leave and collect
-          feedback for a product or service
+          feedback for a product or service.
         </p>
-        <p>Version 1.0.0</p>
-
+        <p>Version 1.0.1</p>
+        <p>Tech Stack: React / Firebase / Framer Motion / JSON Server + Concurrently (development) </p>
         <p>
           <Link to='/'><Button>
             Home
           </Button></Link>
-
         </p>
       </div>
     </Card>
