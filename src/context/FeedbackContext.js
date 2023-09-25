@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import { doc, collection, getDocs, addDoc, deleteDoc, updateDoc } from "firebase/firestore";
-import { db } from '../utils/firebaseConfig.js'
+import { db } from '../firebaseConfig.js'
 
 const FeedbackContext = createContext();
 

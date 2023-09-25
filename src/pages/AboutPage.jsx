@@ -11,7 +11,7 @@ function AboutPage() {
           feedback for a product or service.
         </p>
         <p>Version 1.0.1</p>
-        <p>Tech Stack: React / Firebase / Framer Motion </p>
+        <p>Tech Stack: React | Firebase | Framer Motion </p>
         <p>JSON Server + Concurrently (during development) </p>
         <p>
           <Link to='/'><Button>

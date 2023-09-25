@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+![Survey App Screenshot](src/components/assets/survey-app.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Simple Survey App
 
-## Available Scripts
+A modern and dynamic survey application built with React and Firebase. It leverages Framer Motion for animations and is deployed on Netlify. During development, it uses JSON Server for mocking a backend and Concurrently for running multiple npm scripts simultaneously.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Dynamic survey forms generated in React.
+- Real-time data persistence with Firebase.
+- Smooth animations with Framer Motion.
+- Local backend simulation with JSON Server.
+- Efficient task management in development with Concurrently.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Prerequisites
 
-### `npm test`
+- Node.js and npm installed.
+- Firebase account and a new project setup.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation
 
-### `npm run build`
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/CodingHobo/survey-app.git
+    ```
+2. Navigate to the project directory:
+```bash
+cd survey-app
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+3. Install required dependencies:
+```
+npm install
+```
+4. Set up your Firebase configuration and environment variables in a .env file. Make sure variable names start with REACT_APP_.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. Run in your local server:
+```bash
+npm start
+```
+## Built With
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [React](https://reactjs.org/) - The web framework used.
+- [Firebase](https://firebase.google.com/) - Backend and real-time database.
+- [Framer Motion](https://www.framer.com/api/motion/) - Animation library.
+- [Netlify](https://www.netlify.com/) - Deployment platform.
+- [JSON Server](https://github.com/typicode/json-server) - Mock backend in development.
+- [Concurrently](https://www.npmjs.com/package/concurrently) - Run multiple npm scripts simultaneously.
 
-### `npm run eject`
+## Contributing
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Contributions are welcome!
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[MIT](https://choosealicense.com/licenses/mit/)
